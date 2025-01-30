@@ -1,0 +1,196 @@
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 equally spaced columns */
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 10px;
+}
+
+header .left {
+    justify-self: start;
+    margin-top: 20px; 
+    padding: 10px;
+    border: 1px;
+    border-radius: 5px; 
+    line-height: 1.5;
+    font-family:"IM Fell DW Pica", serif; 
+}
+
+header .center {
+    justify-self: center;
+    color: #333; 
+    font-size: 2rem;
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+header .right {
+    justify-self: end;
+    margin-top: 20px; 
+    padding: 10px;
+    border: 1px;
+    border-radius: 5px; 
+    line-height: 1.5;
+    font-family:"IM Fell DW Pica", serif; 
+}
+
+header .right a {
+  color: #333;
+  text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    padding-left: var (0.75rem);
+    padding-right: var (0.75rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-block {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem; 
+    color: white;
+    background-color: black;
+
+}
+
+.block-message {
+    padding-left: 0px; 
+    padding-right: 0px;
+    width: 50%;
+}
+
+.feature-story {
+    font-style: italic;
+    font-size: 3rem;
+}
+
+.story-text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family:"IM Fell DW Pica", serif;
+}
+
+p .story-link {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.stories {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 2rem; /* Space between columns */
+  }
+  
+  .post-sections {
+    background-color: #f9f9f9; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-post {
+    padding: 10px;
+    border: 1px;
+    border-radius: 5px; 
+    line-height: 1.5;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid black;
+    font-family:"IM Fell DW Pica", serif; 
+  }
+
+  .create-post a {
+    text-decoration: none;
+  }
+  
+  .create-post:hover {
+    background-color: rgb(192,192,192); 
+    opacity:0.6; 
+  }
+  
+  .post-sections hr {
+    border: 1px solid #ccc;
+  }
+  
+  .blog-post {
+    margin-bottom: 20px; /* Space between blog posts */
+    position: relative;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+  }
+  
+  .post-date {
+    font-size: 0.9rem;
+    color: #666;
+    font-family:"IM Fell DW Pica", serif;
+  }
+
+  .post-author {
+    font-size: 0.9rem;
+    color: #666;
+    font-family:"IM Fell DW Pica", serif;
+  }
+
+  .post-content {
+    white-space: pre-wrap;
+  }
+  .post-buttons {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+
+  .post-buttons a {
+    color: #333;
+  }
+  
+  .other-info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .other-info h4 {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  ol {
+    padding: 0;
+    list-style: none;
+  }
+  
+  ol li a {
+    text-decoration: none;
+  }
+  
+  ol li a:hover {
+    text-decoration: underline;
+  }
+
+footer {
+    text-align: center;
+    color: #333; 
+    font-size: 1rem;
+    font-family: "IM Fell DW Pica", serif;
+    font-style: italic;
+    margin: 1rem;
+}
+
+@media (min-width: 768px) { /*medium devices 768px and up*/
+    .container {
+        max-width: 720px;
+    }
+
+    .main-block {
+        padding: 3rem; 
+    }
+}

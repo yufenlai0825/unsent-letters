@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap"
+            rel="stylesheet">
+        <title>Log-in</title>
+    </head>
+
+    <body>
+        <div class="background">
+            <div class="portal">
+                <h1>Unsent Letters</h1>
+                <div class="transbox">
+                    <form action="/main" method="POST">
+                        <div class="form-floating">
+                            <label for="password">Password:</label>
+                            <input type="text" id="password" name="password"
+                                required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="flexCheckDefault"
+                                name="remember-me">
+                            <label for="flexCheckDefault">Remember me</label>
+                        </div>
+                        <button class="btn"
+                            type="submit">Sign
+                            in</button>
+                        <p>address to the fire...</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

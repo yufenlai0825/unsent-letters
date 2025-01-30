@@ -1,0 +1,72 @@
+
+.background {
+    background-image: url("/images/background.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers the .portal horizontally */
+    align-items: center; /* Centers the .portal vertically */
+    animation: fade-in 3s ease-in-out forwards; 
+    /* forwards to make sure it retains the final state defined in the animation's last keyframe */
+}
+
+@keyframes fade-in {
+    0% {opacity: 0.5; transform: scale(1.1)}
+    100% {opacity: 1; transform: scale(1)}
+}
+
+.portal {
+    width: 50%; 
+    height: auto; /* Let the height adjust automatically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1; /* Ensure the portal is always on top */
+}
+
+.transbox {
+    background-color: rgba(255, 255, 255, 0.7); /* semi-transparency */
+    width: 400px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.transbox:hover {
+    background-color: rgb(192,192,192); 
+    opacity:0.6; 
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 4rem;
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: 400;
+    font-style: italic; 
+}
+
+.form-floating, .form-check {
+    padding: 10px;
+    width: 100%;
+}
+
+button.btn {
+    margin-top: 20px; 
+    padding: 10px;
+    border-radius: 5px; 
+    font-family:'Times New Roman', Times, serif; 
+}
+
+p {
+    margin-top: 20px;
+    color: #333; 
+    font-size: 1rem;
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: 400;
+    font-style: italic; 
+}

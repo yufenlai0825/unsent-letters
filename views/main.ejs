@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap"
+            rel="stylesheet">
+        <title>Main</title>
+    </head>
+
+    <body>
+        <header class="container">
+            <button class="col left">Subscribe</button>
+            <div class="col center">Unsent Letters</div>
+            <button class="col right"><a href="/">Log out</a></button>
+        </header>
+
+        <main class="container">
+            <div class="main-block">
+                <div class="block-message">
+                    <h1 class="feature-story">The Tortured Poets Department</h1>
+                    <p class="story-text">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Adipisci porro tempore impedit
+                        blanditiis. Et voluptas consequuntur nobis sunt,
+                        mollitia sed.</p>
+                    <p class="continue-reading"><a href="#"
+                            class="story-link">Continue
+                            reading...</a></p>
+                </div>
+            </div>
+            <div class="stories">
+
+                <!-- Left: Blog posts -->
+                <div class="post-sections">
+                    <button class="create-post"><a href="/draft">Write A New
+                            Letter</a></button>
+                    <hr>
+                    <% posts.forEach ((post) => { %>
+                    <div class="blog-post">
+                        <h2><%= post.title %></h2>
+                        <div class="post-buttons">
+                            <a href="/edit?title=<%= post.title %>"><i
+                                    class="bi bi-pen"></i></a>
+                            <button"><i class="bi bi-trash"
+                                    data-title="<%= post.title %>"></i></button>
+                            <%# store post.title in data-title, so JS can read
+                            data-title when clicked %>
+                        </div>
+                        <p class="post-date"><%= post.date %></p>
+                        <p class="post-author"><%= post.author %></p>
+                        <p class="post-content"><%= post.content %></p>
+                        <hr>
+                    </div>
+                    <% }) %>
+                </div>
+
+                <!-- Right: Other info -->
+                <div class="other-info">
+                    <div class="about">
+                        <h4>About</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Quidem sunt ipsam itaque, officiis
+                            voluptatibus libero.</p>
+                    </div>
+
+                    <div class="archives">
+                        <h4>Archives</h4>
+                        <ol>
+                            <li><a href="#">March 2021</a></li>
+                            <li><a href="#">February 2021</a></li>
+                            <li><a href="#">January 2021</a></li>
+                            <li><a href="#">December 2020</a></li>
+                            <li><a href="#">November 2020</a></li>
+                            <li><a href="#">October 2020</a></li>
+                            <li><a href="#">September 2020</a></li>
+                        </ol>
+                    </div>
+
+                    <div class="elsewhere">
+                        <h4>Elsewhere</h4>
+                        <ol>
+                            <li><a href="https://github.com/yufenlai0825"><i
+                                        class="bi bi-github">
+                                        GitHub</i></a></li>
+                            <li><a
+                                    href="https://www.linkedin.com/in/sandralai0825/"><i
+                                        class="bi bi-linkedin">
+                                        Linkedln</i></a></li>
+                            <li><a href="https://x.com/ylai0825"><i
+                                        class="bi bi-twitter-x">
+                                        X</i></a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>© All Rights Reserved</footer>
+    </body>
+
+    <script>
+    document.querySelectorAll(".bi-trash").forEach((button) => {
+    button.addEventListener("click", function (){
+    var message = "Sure to burn this letter?"; 
+    if (confirm(message) === true) {    
+        //The confirm() method returns true if the user clicked "OK", otherwise false.
+        const title = this.getAttribute("data-title"); // Get the title of the clicked post
+        fetch ("/delete", {
+            method: "POST", 
+            headers: { "Content-Type": "application/json" }, 
+            body: JSON.stringify({ title: title }) // Send title in request body
+        }); 
+        alert("The letter is gone."); 
+    } else {
+        alert("The letter is kept."); 
+    }
+    window.location.reload(); // reload the current page
+    })}) ;
+    </script>
+</html>
