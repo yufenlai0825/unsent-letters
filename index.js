@@ -6,8 +6,6 @@ import fs from "fs";
 const app = express();
 const port = 3000;
 const postsFilePath = "./posts.json";
-let posts = getPosts(); //load posts from the JSON file
-let date = new Date().toUTCString(); 
 
 //Middleware
 app.use(express.static("public")); // Serve static files from the "public" directory
@@ -40,7 +38,8 @@ app.get("/", (req, res) => {
 
 app.post("/main", (req, res) => {
     if (req.body.password === "AddressToTheFire") {
-        res.render("main.ejs");
+        const posts = getPosts(); //load posts from the JSON file
+        res.render("main.ejs",  { posts });
     } else {
         res.redirect("/?error=true"); 
     }
@@ -48,6 +47,7 @@ app.post("/main", (req, res) => {
 
 // Display blog posts on Main Page
 app.get("/main", (req, res) => {
+    const posts = getPosts(); //Always fetch latest posts
     res.render("main.ejs", { posts });
 });
   
@@ -57,12 +57,13 @@ app.get("/draft", (req, res) => { ////showing the form where users enter a title
   });
   
 app.post("/draft", (req, res) => { //draft page handles the form submission
-    const { title, author, content } = req.body;
+  const posts = getPosts();  
+  const { title, author, content } = req.body;
     const newPost = {
       title,
       author,
       content,
-      date,
+      date: new Date().toUTCString(),
     };
     //extracts the values from the form and assigns them to the respective variables
     posts.push(newPost);
@@ -91,7 +92,8 @@ app.get("/edit", (req, res) => {
 }); 
   
 app.post("/edit", (req, res) => {
-    const { originalTitle, title, author, content } = req.body;
+  const posts = getPosts();  
+  const { originalTitle, title, author, content } = req.body;
     
     // Find the post by its original title
     const postIndex = posts.findIndex((post) => post.title === originalTitle);
@@ -103,7 +105,7 @@ app.post("/edit", (req, res) => {
     title,
     author,
     content,
-    date,
+    date: new Date().toUTCString(),
     };
 
     savePosts();
@@ -115,6 +117,7 @@ app.post("/edit", (req, res) => {
 
 //Delete a post 
 app.post("/delete", (req, res) => {
+    const posts = getPosts();
     let { title } = req.body; 
     const postIndex = posts.findIndex((post) => post.title === title); // Find the post index
     if (postIndex !== -1) {
