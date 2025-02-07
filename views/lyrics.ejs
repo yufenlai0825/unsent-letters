@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/lyrics.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap"
+            rel="stylesheet">
+        <title>Finding Lyrics</title>
+    </head>
+
+    <body>
+        <div class="background">
+            <div class="portal">
+                <h1>I Replay My Footsteps On Each Stepping Stone...</h1>
+                <div class="transbox">
+                    <form action="/get-lyrics" method="POST">
+                        <div class="form-floating up">
+                            <label for="title">Song Title:</label>
+                            <textarea id="title" name="title" rows="1"
+                                placeholder="back-to-december"
+                                required><%= songtitle %></textarea>
+                        </div>
+                        <div class="form-floating down">
+                            <label for="content">Lyrics:</label>
+                            <textarea id="content" name="content" rows="13"
+                                cols="40"><%= content %></textarea>
+                        </div>
+                        <button class="btn"
+                            type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
